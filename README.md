@@ -33,11 +33,9 @@ SO THAT my website can handle large amounts of unstructured data
 2. Open project directory, then 'npm i' in termmial to install all required dependencies.
 3. Have insomnia installed to test routes.
 
-### Usage
-
 
 ### Screenshot
-![img]()
+![img](./assets/img/18-nosql-homework-demo-01.gif)
 
 ### Contact or questions
 [Coleyrockin Github](https://github.com/coleyrockin)
