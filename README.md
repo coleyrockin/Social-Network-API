@@ -25,7 +25,7 @@ SO THAT my website can handle large amounts of unstructured data
 - MongoDB
 - Mongoose ODM
 - Choice of Javascript Date object
-- Insomnia
+- Insomnia (Testing routes)
 
 
 ### Installation
