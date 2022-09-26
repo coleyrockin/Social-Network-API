@@ -15,7 +15,7 @@ I WANT an API for my social network that uses a NoSQL database
 SO THAT my website can handle large amounts of unstructured data
 ```
 ### Walkthrough Video
-- [Link to video insomia use]()
+- [Video of insomia demonstration]()
 
 ### Technology:
 - Javascript
