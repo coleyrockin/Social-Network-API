@@ -10,7 +10,7 @@ const thoughtController = {
       })
       .select("-__v")
       .sort({ _id: -1 })
-      .then((dbThoghtData) => res.json(dbThoughtdb))
+      .then((dbThoughtdb) => res.json(dbThoughtdb))
       .catch((err) => {
         console.log(err);
         res.sendStatus(400);
@@ -51,9 +51,9 @@ const thoughtController = {
         if (!dbUserData) {
           return res
             .status(404)
-            .json({ message: "Thpught created but no user with this id" });
+            .json({ message: "Thought created but no user with this id" });
         }
-        res.json({ message: "THought successfully created!" });
+        res.json({ message: "Thought successfully created!" });
       })
       .catch((err) => res.json(err));
   },
