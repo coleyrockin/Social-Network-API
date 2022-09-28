@@ -15,7 +15,7 @@ I WANT an API for my social network that uses a NoSQL database
 SO THAT my website can handle large amounts of unstructured data
 ```
 ### Walkthrough Video
-- [Video of insomia demonstration]()
+- [Video of insomia demonstration](https://drive.google.com/file/d/11LuewE6fflLXSRwz7C7gOzHGgWAHpkGb/view)
 
 ### Technology:
 - Javascript
@@ -40,7 +40,7 @@ npm install
 After installing npm packages, the application will be invoked by using the following command:
 
 ```
-npm start, and test routes with insomnia
+npm start, and then test routes with insomnia
 ```
 
 ### Screenshot of Insomnia
