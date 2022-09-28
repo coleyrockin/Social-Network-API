@@ -23,6 +23,7 @@ SO THAT my website can handle large amounts of unstructured data
 - Express.js
 - MongoDB
 - Mongoose
+- Moment.js
 - Insomnia (Test Routes)
 
 
@@ -39,11 +40,11 @@ npm install
 After installing npm packages, the application will be invoked by using the following command:
 
 ```
-npm start
+npm start, and test routes with insomnia
 ```
 
 ### Screenshot of Insomnia
-![img](./assets/img/18-nosql-homework-demo-01.gif)
+![img](./assets/img/insomniasocialapi.png)
 
 ## Contact or questions
 Boyd Roberts
