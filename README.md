@@ -1,4 +1,78 @@
-# Social-Network-API
+# Social Network API
+
+![Express.js](https://img.shields.io/badge/Express.js-4-000000?style=flat&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-6-47A248?style=flat&logo=mongodb&logoColor=white)
+![Mongoose](https://img.shields.io/badge/Mongoose-6-880000?style=flat&logo=mongoose&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![License](https://img.shields.io/badge/License-ISC-blue?style=flat)
+
+## About
+
+A RESTful API for a social network built with Express.js and MongoDB. Users can share thoughts, react to friends' thoughts, and manage a friend list. Designed for NoSQL to handle large amounts of unstructured data at scale.
+
+## Features
+
+- Full CRUD for users and thoughts
+- Add and remove reactions to thoughts
+- Add and remove friends from a user's friend list
+- Mongoose virtuals for friend count and reaction count
+- Moment.js formatted timestamps
+- RESTful API routes tested with Insomnia
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Server | Node.js, Express.js 4 |
+| Database | MongoDB, Mongoose 6 |
+| Dates | Moment.js 2 |
+
+## API Routes
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/users | Get all users |
+| GET | /api/users/:id | Get one user with thoughts and friends |
+| POST | /api/users | Create a user |
+| PUT | /api/users/:id | Update a user |
+| DELETE | /api/users/:id | Delete a user and their thoughts |
+| POST | /api/users/:userId/friends/:friendId | Add a friend |
+| DELETE | /api/users/:userId/friends/:friendId | Remove a friend |
+| GET | /api/thoughts | Get all thoughts |
+| POST | /api/thoughts | Create a thought |
+| POST | /api/thoughts/:thoughtId/reactions | Add a reaction |
+
+## Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/coleyrockin/Social-Network-API.git
+cd Social-Network-API
+
+# Install dependencies
+npm install
+
+# Start the server (requires MongoDB running locally)
+npm start
+```
+
+Test routes with Insomnia at `http://localhost:3001`.
+
+## Project Structure
+
+```
+Social-Network-API/
+├── config/
+├── controllers/
+├── models/
+├── routes/
+├── server.js
+└── package.json
+```
+
+---
+
+> Built by [coleyrockin](https://github.com/coleyrockin)# Social-Network-API
 Build an API for a social network using Express.js for routing, a MongoDB database, and the Mongoose ODM.
 
 ## Description
