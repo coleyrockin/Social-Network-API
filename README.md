@@ -5,9 +5,67 @@
 ![Node.js](https://img.shields.io/badge/Node.js-Runtime-339933?style=flat&logo=node.js&logoColor=white)
 ![License](https://img.shields.io/badge/License-ISC-blue?style=flat)
 
-## About
+REST API for a social network data model. It supports users, thoughts, reactions, and friend relationships using Express, MongoDB, and Mongoose.
 
-A RESTful API for a social network application built with Express.js and MongoDB using Mongoose ODM. Supports users, thoughts (posts), reactions (replies), and friend lists.
+This repository is suitable to publish publicly as a portfolio/demo API. It is not production-ready as a deployed public service until authentication, authorization, and abuse controls are added.
+
+## Status
+
+- Public repo readiness: ready after the tracked `node_modules` cleanup in this commit.
+- Dependency audit: `npm audit --omit=dev` reports `0 vulnerabilities`.
+- Runtime: local/demo Express API backed by MongoDB.
+- Security caveat: all API routes are unauthenticated by design in the current project scope.
+
+## Tech Stack
+
+- Node.js 18+
+- Express 4
+- MongoDB
+- Mongoose
+- Moment.js
+- Node built-in test runner
+
+## Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Copy the environment example:
+
+```bash
+cp .env.example .env
+```
+
+3. Start MongoDB locally, or set `MONGODB_URI` to a reachable MongoDB connection string.
+
+4. Start the API:
+
+```bash
+npm start
+```
+
+The server defaults to `http://localhost:3001`.
+
+## Scripts
+
+```bash
+npm start
+npm test
+npm run check
+npm audit --omit=dev
+```
+
+## Environment Variables
+
+| Name | Default | Purpose |
+| --- | --- | --- |
+| `MONGODB_URI` | `mongodb://127.0.0.1:27017/social-network-api` | MongoDB connection string |
+| `PORT` | `3001` | API port |
+| `NODE_ENV` | unset | Runtime environment |
+| `MONGOOSE_DEBUG` | `false` | Set to `true` with `NODE_ENV=development` to log Mongoose queries |
 
 ## Features
 
@@ -19,46 +77,78 @@ A RESTful API for a social network application built with Express.js and MongoDB
 - **Timestamps** — Moment.js formatted dates
 - **Cascade Delete** — Removing a user deletes their thoughts
 
-## Tech Stack
-
-| Category | Technology |
-|----------|------------|
-| Framework | Express.js 4 |
-| Database | MongoDB, Mongoose 6 |
-| Timestamps | Moment.js 2 |
-| Runtime | Node.js |
-
-## Getting Started
-
-```bash
-git clone https://github.com/coleyrockin/Social-Network-API.git
-cd Social-Network-API
-npm install
-npm start
-```
-
 ## API Routes
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/users` | Get all users |
-| GET | `/api/users/:id` | Get user by ID |
-| POST | `/api/users` | Create user |
-| PUT | `/api/users/:id` | Update user |
-| DELETE | `/api/users/:id` | Delete user + thoughts |
-| POST | `/api/users/:userId/friends/:friendId` | Add friend |
-| DELETE | `/api/users/:userId/friends/:friendId` | Remove friend |
-| GET | `/api/thoughts` | Get all thoughts |
-| GET | `/api/thoughts/:id` | Get thought by ID |
-| POST | `/api/thoughts` | Create thought |
-| PUT | `/api/thoughts/:id` | Update thought |
-| DELETE | `/api/thoughts/:id` | Delete thought |
-| POST | `/api/thoughts/:thoughtId/reactions` | Add reaction |
-| DELETE | `/api/thoughts/:thoughtId/reactions/:reactionId` | Remove reaction |
+### Users
+
+| Method | Route | Description |
+| --- | --- | --- |
+| `GET` | `/api/users` | List users |
+| `GET` | `/api/users/:id` | Get one user with thoughts and friends |
+| `POST` | `/api/users` | Create a user |
+| `PUT` | `/api/users/:id` | Update allowed user fields |
+| `DELETE` | `/api/users/:id` | Delete a user and associated thoughts |
+| `POST` | `/api/users/:userId/friends/:friendId` | Add a friend |
+| `DELETE` | `/api/users/:userId/friends/:friendId` | Remove a friend |
+
+### Thoughts
+
+| Method | Route | Description |
+| --- | --- | --- |
+| `GET` | `/api/thoughts` | List thoughts |
+| `GET` | `/api/thoughts/:id` | Get one thought |
+| `POST` | `/api/thoughts` | Create a thought for an existing user |
+| `PUT` | `/api/thoughts/:id` | Update allowed thought fields |
+| `DELETE` | `/api/thoughts/:id` | Delete a thought and remove user references |
+| `POST` | `/api/thoughts/:thoughtId/reactions` | Add a reaction |
+| `DELETE` | `/api/thoughts/:thoughtId/reactions/:reactionId` | Remove a reaction |
+
+## Example Requests
+
+Create a user:
+
+```json
+{
+  "username": "boyd",
+  "email": "boyd@example.com"
+}
+```
+
+Create a thought:
+
+```json
+{
+  "thoughtText": "Building APIs with MongoDB.",
+  "username": "boyd",
+  "userId": "507f1f77bcf86cd799439011"
+}
+```
+
+Create a reaction:
+
+```json
+{
+  "reactionBody": "Nice work.",
+  "username": "cole"
+}
+```
+
+## Audit Docs
+
+- [Security Audit](./SECURITY_AUDIT.md)
+- [Codebase Audit](./CODEBASE_AUDIT.md)
+- [Roadmap](./ROADMAP.md)
+
+## Known Limitations
+
+- No authentication or authorization yet.
+- No rate limiting yet.
+- No hosted deployment configuration yet.
+- No full integration test harness with a disposable MongoDB instance yet.
 
 ## Project Structure
 
-```
+```text
 Social-Network-API/
 ├── config/         # MongoDB connection
 ├── controllers/    # Route controllers
@@ -68,6 +158,9 @@ Social-Network-API/
 └── package.json
 ```
 
----
+## License
+
+ISC
 
 Built by [Boyd Roberts](https://github.com/coleyrockin)
+
