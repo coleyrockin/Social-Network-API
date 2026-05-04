@@ -1,8 +1,9 @@
 # Social Network API
 
+[![CI](https://github.com/coleyrockin/Social-Network-API/actions/workflows/ci.yml/badge.svg)](https://github.com/coleyrockin/Social-Network-API/actions/workflows/ci.yml)
 ![Express.js](https://img.shields.io/badge/Express.js-4.x-000000?style=flat&logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose_6-47A248?style=flat&logo=mongodb&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-Runtime-339933?style=flat&logo=node.js&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?style=flat&logo=node.js&logoColor=white)
 ![License](https://img.shields.io/badge/License-ISC-blue?style=flat)
 
 REST API for a social network data model. It supports users, thoughts, reactions, and friend relationships using Express, MongoDB, and Mongoose.
